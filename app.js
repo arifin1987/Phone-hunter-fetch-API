@@ -6,7 +6,7 @@ const loadPhones =async (searchText)=>{
     displayPhones(data.data)
 }
 
-loadPhones();
+// loadPhones();
 
 
 
@@ -16,6 +16,15 @@ const displayPhones = (phones) =>{
 
     const phonesContainer = document.getElementById('phones-container')
     phonesContainer.innerText ='';
+    phones= phones.slice(0,10);
+
+    const noPhone = document.getElementById('no-phone-found');
+    if(phones.length===0){
+        noPhone.classList.remove('d-none')
+    }
+    else{
+        noPhone.classList.add('d-none')
+    }
 
     phones.forEach(phone=> {
     const phoneDiv = document.createElement('div');
